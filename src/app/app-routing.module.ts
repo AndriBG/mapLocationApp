@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'view-map/:name/:latitude/:longitude',
+    loadChildren: () => import('./view-map/view-map.module').then( m => m.ViewMapPageModule)
+  },
 ];
 
 @NgModule({

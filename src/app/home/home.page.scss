@@ -1,11 +1,35 @@
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+ion-content {
+  --background: #5a5a5a;
+  --background: #afafaf;
+}
+
+#world {
+  background-color: #e38404;
+  border-radius: 80%;
+  border-radius: 30px 30px 15px 500px;
+  height: 70vh;
+  margin: auto;
+  padding: 30px;
+  width: 80%;
+}
+
+ion-item {
+  border-radius: 5px;
+  margin: 5px;
+}
+
+ion-app._gmaps_cdv_ .ion-page:not(._gmaps_cdv_),
+ion-app._gmaps_cdv_ ion-modal:not(._gmaps_cdv_) {
+    display: none;
 }
 
 #container strong {
