@@ -9,24 +9,27 @@ declare var google: any;
   styleUrls: ['./view-map.page.scss'],
 })
 export class ViewMapPage implements OnInit {
-  
+
   name: string;
   latitude: number = 18.735693;
   longitude: number = -70.162651;
 
   map: any;
-  infoWindows: any = [];
-  
-  constructor(private route: ActivatedRoute) {
-   }
-
   @ViewChild('map', { read: ElementRef, static: false }) mapRef: ElementRef;
-  
+  infoWindows: any = [];
+
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngAfterViewInit(){
+    this.showMap();
+  }
+
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name');
     this.latitude = parseInt(this.route.snapshot.paramMap.get('latitude'));
     this.longitude = parseInt(this.route.snapshot.paramMap.get('longitude'));
-    this.showMap();
+    // this.showMap();
   }
 
   showMap() {

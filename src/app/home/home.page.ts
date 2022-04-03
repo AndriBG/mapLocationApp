@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
-import { ModalPage } from './modal.page';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -14,26 +13,10 @@ export class HomePage {
   latitude: number;
   isModal: boolean = false;
 
-  constructor(private modal: ModalController, public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) {}
 
    viewMap () {
     this.navCtrl.navigateForward('/view-map/'+this.name+'/'+this.latitude+'/'+this.longitude);
-  }
-
-  async viewModelMap () {
-    this.isModal = true;
-    const modal = await this.modal.create({
-      component: ModalPage,
-      cssClass: 'my-custom-class',
-      keyboardClose: false,
-      componentProps: {
-        name: this.name,
-        latitude: this.latitude,
-        longitude: this.longitude
-      }
-    });
-
-     await modal.present();
   }
 
 }
